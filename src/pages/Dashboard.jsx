@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
+  
   const handleLogout = () => {
     localStorage.removeItem('token');
     window.location.href = '/login';
