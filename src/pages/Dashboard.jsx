@@ -1,6 +1,18 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { api } from '../services/api';
 
 const Dashboard = () => {
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    api.get('/users/me/') // you'll need to implement this endpoint
+      .then(res => setUser(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
+  if (!user) return <div>Loading...</div>;
   
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -19,35 +31,39 @@ const Dashboard = () => {
         </button>
       </div>
 
-      <div className="space-y-8">
-        <div>
-          <h2 className="text-2xl font-semibold mb-4 text-blue-700">Welcome to Your Dashboard</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-              <h3 className="text-xl font-semibold mb-2 text-blue-800">Recent Projects</h3>
-              <p className="text-gray-600">No projects yet. Create one to get started!</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-              <h3 className="text-xl font-semibold mb-2 text-green-800">Quick Actions</h3>
-              <div className="space-y-2">
-                <Link
-                  to="/create-project"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  Create New Project
-                </Link>
-                <Link
-                  to="/profile"
-                  className="inline-block bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-                >
-                  View Profile
-                </Link>
-              </div>
-            </div>
-          </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {user.is_owner ? (
+    <>
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <h3 className="text-xl font-semibold mb-2 text-blue-800">Owner Tools</h3>
+        <p className="text-gray-600">You can manage clients, create projects, and view reports.</p>
+        <div className="space-y-2 mt-4">
+          <Link
+            to="/create-project"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Create New Project
+          </Link>
+          <Link
+            to="/clients"
+            className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          >
+            View Clients
+          </Link>
         </div>
       </div>
+    </>
+  ) : (
+    <>
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+        <h3 className="text-xl font-semibold mb-2 text-purple-800">Assigned Projects</h3>
+        <p className="text-gray-600">You’re currently assigned to X projects. Stay updated!</p>
+        {/* Later, map over assigned projects */}
+      </div>
+    </>
+  )}
+</div>
+
     </main>
   );
 };
