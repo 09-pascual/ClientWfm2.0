@@ -13,7 +13,7 @@ export const WorkerDashboard = () => {
 
   return (
     <div>
-        <h2 className="text-2xl" font-semibold mb-4 text-green-700>Assigned Projects</h2>
+        <h2 className="text-2xl" font-semibold mb-4 text-green-700>Assigned Projects for Worker</h2>
         {projects.length === 0 ? (
             <p>No Assigned Projects</p>
         ) : (
