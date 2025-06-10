@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { createProject } from "../services/ProjectServices"
 
 export const CreateProjectForm = () => {
     const navigate = useNavigate()
@@ -29,6 +30,8 @@ export const CreateProjectForm = () => {
             workers: project.workers,
             groups: project.groups
         }
+
+        createProject(newProject).then(() => {navigate("/")})
     }
     return (
         <div>
