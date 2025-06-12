@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Registration';
+import { CreateProjectForm } from './Projects/CreateNewProjectForm';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Dashboard />} />
+          <Route path="/create-Project" element={<CreateProjectForm/>}/>
         </Route>
 
         {/* Optional: 404 catch-all */}

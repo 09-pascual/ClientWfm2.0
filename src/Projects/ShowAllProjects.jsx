@@ -105,6 +105,18 @@ return (
                   <p className='text-gray-500'>Address</p>
                   <p className='font-medium text-gray-900'>{project.address} addy</p>
                 </div>
+               <div className='text-gray-500'>
+                  <p>Group Name</p>
+                  {project.groups?.length > 0 ? (
+                <div>
+                {project.groups.map((projectgroup) => (
+                  <p key={projectgroup.id} className='font-medium text-gray-900'>{projectgroup.name}</p>
+                ))}
+                </div>
+              ) : (
+              <p className='font-medium text-gray-900'>No groups available</p>
+              )}
+              </div>
               </div>
             </div>
           </div>
