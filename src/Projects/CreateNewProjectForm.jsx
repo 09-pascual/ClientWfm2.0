@@ -27,9 +27,9 @@ export const CreateProjectForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     useEffect(() => {
-        getWorkers().then(setWorkers).catch(err => setError("Failed to load workers"))
-        getGroups().then(setGroups).catch(err => setError("Failed to load groups"))
-        getClients().then(setClients).catch(err => setError("Failed to get clients"))
+        getWorkers().then(setWorkers).catch((err) => setError("Failed to load workers"))
+        getGroups().then(setGroups).catch((err) => setError("Failed to load groups"))
+        getClients().then(setClients).catch((err) => setError("Failed to get clients"))
     }, [])
 
     const handleSubmit = async (e) => {
