@@ -45,3 +45,15 @@ export const deleteProject = async (id) => {
     throw error.response?.data || error;
   }
 };
+
+
+export const getProjectById = async (id) => {
+  try {
+    const response = await api.get(`/project/${id}`)
+    return response.data
+  } catch (error) {
+    console.error("failed to fetch project:", error.response?.data || error.message)
+    throw error.response?.data || error
+  }
+};
+

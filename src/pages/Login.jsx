@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await loginUser(formData);
-      navigate('/dashboard'); // Redirect to landing page
+      navigate('/dashboard'); 
     } catch (err) {
       setError(err.error || 'Login failed');
     }
