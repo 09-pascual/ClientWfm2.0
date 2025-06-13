@@ -4,7 +4,7 @@ import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Registration';
 import { CreateProjectForm } from './Projects/CreateNewProjectForm';
-import { EditProjectForm } from './Projects/EditNewProject';
+import { EditProjectForm } from './Projects/EditProjectForm';
 
 function App() {
   return (
