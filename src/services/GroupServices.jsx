@@ -1,8 +1,8 @@
-import { api } from "./api" // Assuming you have a configured Axios instance named `api`
+import { api } from "./api" 
 
 export const getGroups = async () => {
   try {
-    const response = await api.get("/groups") // Adjust the endpoint if needed
+    const response = await api.get("/groups") 
     return response.data
   } catch (error) {
     console.error("Error fetching groups:", error)

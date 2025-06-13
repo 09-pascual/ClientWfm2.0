@@ -5,7 +5,7 @@ export const WorkerDashboard = () => {
     const[projects, setProjects] = useState([])
 
      useEffect(() => {
-        api.get('/my-projects/') // custom endpoint you’ll write for worker's assigned projects
+        api.get('/my-projects/') 
       .then(res => setProjects(res.data))
       .catch(err => console.error(err));
   }, []);

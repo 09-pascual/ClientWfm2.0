@@ -1,8 +1,8 @@
-import { api } from "./api" // Assuming you have a configured Axios instance named `api`
+import { api } from "./api" 
 
 export const getWorkers = async () => {
   try {
-    const response = await api.get("/workers") // Adjust the endpoint if needed
+    const response = await api.get("/workers") 
     return response.data
   } catch (error) {
     console.error("Error fetching workers:", error)
