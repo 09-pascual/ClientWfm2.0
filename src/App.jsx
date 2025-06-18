@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Register from './pages/Registration';
 import { CreateProjectForm } from './Projects/CreateNewProjectForm';
 import { EditProjectForm } from './Projects/EditProjectForm';
+import { Navbar } from './components/Navbar';
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         
         {/* Protected routes */}
-        <Route element={<ProtectedRoute />}>
+        <Route element={<>
+          <Navbar/>
+          <ProtectedRoute /> 
+          </>}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="/create-Project" element={<CreateProjectForm/>}/>
