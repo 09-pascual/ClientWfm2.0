@@ -28,7 +28,6 @@ function App() {
           <Route path="/clients" element={<ClientList/>}/>
         </Route>
 
-        {/* Optional: 404 catch-all */}
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </Router>
