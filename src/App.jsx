@@ -6,6 +6,7 @@ import Register from './pages/Registration';
 import { CreateProjectForm } from './Projects/CreateNewProjectForm';
 import { EditProjectForm } from './Projects/EditProjectForm';
 import { Navbar } from './components/Navbar';
+import { ClientList } from './clients/ShowAllClients';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/create-Project" element={<CreateProjectForm/>}/>
           <Route path="/editProjectForm/:projectId" element={<EditProjectForm/>}/>
+          <Route path="/clients" element={<ClientList/>}/>
         </Route>
 
         {/* Optional: 404 catch-all */}
