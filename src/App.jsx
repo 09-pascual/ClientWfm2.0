@@ -7,6 +7,7 @@ import { CreateProjectForm } from './Projects/CreateNewProjectForm';
 import { EditProjectForm } from './Projects/EditProjectForm';
 import { Navbar } from './components/Navbar';
 import { ClientList } from './clients/ShowAllClients';
+import { EditClientForm } from './clients/EditClientForm';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/create-Project" element={<CreateProjectForm/>}/>
           <Route path="/editProjectForm/:projectId" element={<EditProjectForm/>}/>
           <Route path="/clients" element={<ClientList/>}/>
+          <Route path='/Edit_Client_Form/:clientId' element={<EditClientForm/>}/>
         </Route>
 
         <Route path="*" element={<div>404 Not Found</div>} />

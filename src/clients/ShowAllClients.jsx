@@ -56,7 +56,7 @@ export function ClientList() {
               <div className="text-gray-600">Phone: {client.phone_number}</div>
               <div className="mt-2">
                 <Link
-                  to={`/Edit-Client/${client.id}`}
+                  to={`/Edit_Client_Form/${client.id}`}
                   className="text-blue-600 hover:underline"
                 >
                   Edit
